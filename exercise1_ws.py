@@ -28,7 +28,7 @@ async def collect_data(ws):
                 response = await websocket.recv()
                 response = json.loads(response)
 
-                logging.info(response)
+                #logging.info(response)
 
                 json_body = [
                     {
@@ -62,5 +62,6 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     finally:
+        print("[+] Ha cancelado la obtencion de los datos")
         loop.close()
     

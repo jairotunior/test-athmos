@@ -31,8 +31,7 @@ class JSONDataSource(BaseDataSource):
 
     def delete(self, index):
         assert index >= 0, "El parametro index debe ser un valor mayor igual a cero."
-        index = max(0, index - 1)
-        assert len(self.df) > index, "El indice no existe"
+        assert len(self.df) > index, "El indice suministrado esta por fuera de la lista."
 
         self.df.drop([index], axis=0, inplace=True)
 
@@ -42,7 +41,6 @@ class JSONDataSource(BaseDataSource):
         index = kwargs.get('index', None)
         assert index is not None, "No se suministro el parametro index"
         assert index >= 0, "El parametro index debe ser un valor mayor igual a cero."
-        index = max(0, index - 1)
         assert len(self.df) > index, "El indice suministrado esta por fuera de la lista."
 
         self.df.iloc[index] = [kwargs.get(p) for p in self.list_properties]

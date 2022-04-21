@@ -1,7 +1,21 @@
 from abc import ABC, abstractmethod
 
 class BaseDataSource(ABC):
-    def __init__(self):
+
+    @abstractmethod
+    def create(self, *args, **kwargs):
+        pass
+
+    @abstractmethod
+    def delete(self, index):
+        pass
+
+    @abstractmethod
+    def modify(self, *args, **kwargs):
+        pass
+
+    @abstractmethod
+    def get_list(self):
         pass
 
     @abstractmethod

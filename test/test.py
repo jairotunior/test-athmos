@@ -1,13 +1,16 @@
 import os
+from time import time
 import pandas as pd
 from unittest import TestCase
-from src.datasources import JSONDataSource
+from datasources import JSONDataSource
 from pathlib import Path
+import time
 
 class TestExercise2(TestCase):
-
-    @classmethod
-    def setUpClass(self):
+    
+    def setUp(self):
+        super().setUp()
+                
         CURRENT_DIR = Path(__file__).resolve().parent
         filename = 'data.json'
         self.path = CURRENT_DIR / filename
@@ -38,16 +41,15 @@ class TestExercise2(TestCase):
             'email': 'jrangel@gmail.com'
         }
 
-        df.append(input_data_1, ignore_index=True)
-        df.append(input_data_2, ignore_index=True)
-        df.append(input_data_3, ignore_index=True)
+        df = df.append(input_data_1, ignore_index=True)
+        df = df.append(input_data_2, ignore_index=True)
+        df = df.append(input_data_3, ignore_index=True)
 
         df.to_json(self.path)
 
         self.process_data = JSONDataSource(self.path)
 
-    @classmethod
-    def tearDownClass(self):
+    def tearDown(self):
         os.remove(self.path)
 
     def test_create(self):
@@ -60,11 +62,11 @@ class TestExercise2(TestCase):
 
         self.process_data.create(**input_data_1)
 
-        self.assertEqual(len(self.process_data.df), 1)
+        self.assertEqual(len(self.process_data.df), 4)
 
     def test_modify(self):
         input_data_3 = {
-            'index': 0,
+            'index': 1,
             'nombres': "Julius",
             'apellidos': "Novacrono",
             'edad': 35,
@@ -73,8 +75,7 @@ class TestExercise2(TestCase):
 
         self.process_data.modify(**input_data_3)
 
-        nombres = self.process_data.df.at[input_data_3['index'], 'nombres']
-
+        nombres = self.process_data.df.iloc[input_data_3['index']]['nombres']
         self.assertEqual(nombres, input_data_3['nombres'])
     
     def test_modify_index_value(self):

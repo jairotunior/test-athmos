@@ -54,5 +54,6 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     finally:
+        print("[+] Ha cancelado el procesamiento de los datos")
         loop.close()
     

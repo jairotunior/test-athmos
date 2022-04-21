@@ -1,54 +1,52 @@
 # Test
 
-This is the solution to the proposal test.
+Esta es la solucion para la prueba propuesta.
 
-## Getting Started
+## Configuarion
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Las siguientes instrucciones permitiran tener el proyecto configurado.
 
-### Installing
+### Instalación
 
-1. Create a new virtual environment with your prefered tools
-2. Copy the repositiory https://github.com/jairotunior/test-athmos.git
-3. Install the dependencies
+1. Crear un entorno virtual.
+2. Copiar el repositorio https://github.com/jairotunior/test-athmos.git
+3. Instalar las dependencias.
 
 ```
 pip install -r requerimientos.txt
 ```
 
-That's all for use.
+Esto es todo!!!
 
 ### Exercise 1
 
-You need to start the InfluxDB in Docker with the next script.
+Como primer paso se necesita iniciar InfluxDB (Base de Datos de Serie de tiempo) que se encargara de guardas los datos provenientes del webservice.
 
 ```
 bash run_influxdb.sh
 ```
 
-To achieve the purpose the problem is divided in two scripts. The exercise1_ws.py does a connection with the websocket and store the data in InfluxDB while exercise1_process
-every minutes preprocess the information.
+Con la finalidad de cumplir el proposito del problema de la mejor manera posible se divide el problema en 2 partes. La primera parte es la captura de datos (exercise1_ws.py) y la segunda parte (exercise1_process.py) es el procesamiento de datos.
 
 ```
 bash run_exercise1_ws.sh
 ```
 
-Open another terminal
+En otra terminal se ejecuta el proceso de procesamiento de datos.
 
 ```
 bash run_exercise1_process.sh
 ```
 
-
 ### Exercise 2
 
-You could use the CLI with the requirements request with the next command.
+Para usar la CLI con las caracteristicas solicitadas ejecutar el comando.
 
 ```
 python exercise2.py -h
 ```
 
-If you want to test the CLI you should run the next script:
+Si se desea ejecutar una prueba unitaria para la CLI se debe correr el siguiente comando.
 
 ```
 bash run_test.py -h
@@ -57,8 +55,7 @@ bash run_test.py -h
 
 ## Built With
 
-* [Gym](https://gym.openai.com/) - Toolkit for developing and comparing reinforcement learning algorithms.
-* [Numpy](http://www.numpy.org/) - Is the fundamental package for scientific computing with Python.
+* [Pandas](https://pandas.pydata.org) - Is the fundamental package for scientific computing with Python.
 * [Python](https://www.python.org/) - Programming Language.
 * [Docker](https://www.docker.com) - Container system.
 * [InfluxDB](https://www.influxdata.com) - Time Series Database.
