@@ -18,7 +18,7 @@ async def collect_data(ws):
             port=8086,
             username='admin',
             password='123456789',
-            database='Home'
+            database='ws'
         )
 
         conn.client.create_database('ws')

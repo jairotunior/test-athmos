@@ -14,7 +14,7 @@ async def process_data(current_timezone, every_seconds):
         port=8086,
         username='admin',
         password='123456789',
-        database='Home'
+        database='ws'
     )
 
     tz_utc = pytz.timezone('UTC')
